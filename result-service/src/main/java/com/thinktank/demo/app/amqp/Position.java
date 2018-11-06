@@ -24,10 +24,6 @@ public class Position {
 	public Position() {
 		super();
 	}
-	@Override
-	public String toString() {
-		return "Position [left=" + left + ", top=" + top + "]";
-	}
 	
 	
 	

@@ -1,10 +1,11 @@
-package com.thinktank.demo.app.queue;
+package com.thinktank.demo.app.amqp;
 
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
+
 public class QueueService {
 
 	
@@ -15,7 +16,7 @@ public class QueueService {
         this.rabbitTemplate = rabbitTemplate;
     }
  
-    public void sendOrder(DragBean order) {
+    public void sendOrder(Position order) {
         this.rabbitTemplate.convertAndSend(EventProducerConfiguration.QUEUE_Control, order);
     }
 }

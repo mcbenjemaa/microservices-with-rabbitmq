@@ -26,42 +26,29 @@ public class SocketHandler extends TextWebSocketHandler {
 	
 	List<WebSocketSession> sessions = new CopyOnWriteArrayList<>();
 	
-	WebSocketSession session;
+	public static WebSocketSession session;
 
 	
 	@Override
 	public void handleTextMessage(WebSocketSession session, TextMessage message)
 			throws InterruptedException, IOException {
 		
+		this.session = session;
 
-		  if (this.session!=null && this.session.isOpen()) {
-			  //Map value = new Gson().fromJson(message.getPayload(), Map.class);
-			   System.out.println("message: "+message.getPayload());
-				Gson gson = new Gson();
-				Position position = gson.fromJson(message.getPayload(), Position.class);
-				   System.out.println("position: "+position);
-
-				if(position !=null && queueService!=null) {
-					queueService.sendOrder(position);
-					session.sendMessage(new TextMessage("message received"));
-				}
-			
-		  }
-//			Map value = new Gson().fromJson(message.getPayload(), Map.class);
-//			webSocketSession.sendMessage(new TextMessage("Hello " + value.get("name") + " !"));
-//			
-			/*
-			 *   send Message
-			 */
 		
+		/*logger.debug("ws message: "+message);
+		if (message.toString().contains("left") && message.toString().contains("top")) {
+			Gson gson = new Gson();
+			Position position = gson.fromJson(message.toString(), Position.class);
+			queueService.sendOrder(position);
+			session.sendMessage(new TextMessage("message received"));
+		}*/
 		
-
 	}
 
 	@Override
 	public void afterConnectionEstablished(WebSocketSession session) throws Exception {
 		//the messages will be broadcasted to all users.
-		this.session=session;
-		//sessions.add(session);
+		sessions.add(session);
 	}
 }
