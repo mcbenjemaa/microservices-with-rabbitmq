@@ -8,19 +8,24 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.handler.TextWebSocketHandler;
 
 import com.google.gson.Gson;
+import com.thinktank.demo.app.amqp.EventProducerConfiguration;
 import com.thinktank.demo.app.amqp.Position;
-import com.thinktank.demo.app.amqp.QueueService;
+import com.thinktank.demo.app.amqp.QueueControlService;
 
 public class SocketHandler extends TextWebSocketHandler {
 
 	@Autowired
-	QueueService queueService;
+	QueueControlService queueService;
+	
+	@Autowired	private RabbitTemplate rabbitTemplate;
+ 
 	
 	Logger logger = LoggerFactory.getLogger(SocketHandler.class);
 	
@@ -46,6 +51,10 @@ public class SocketHandler extends TextWebSocketHandler {
 					session.sendMessage(new TextMessage("message received"));
 				} else if(queueService == null) {
 					System.out.println("queueService is Null!!");
+					sendOrder(position);
+//					queueService= new QueueControlService(rabbitTemplate);
+//					queueService.sendOrder(position);
+//					session.sendMessage(new TextMessage("message received"));
 				}
 			
 		  }
@@ -58,6 +67,11 @@ public class SocketHandler extends TextWebSocketHandler {
 		
 		
 
+	}
+	
+	public void sendOrder(Position order) {
+	    	System.out.println("send Order --- "+ order);
+	        this.rabbitTemplate.convertAndSend(EventProducerConfiguration.QUEUE_Control, order);
 	}
 
 	@Override
