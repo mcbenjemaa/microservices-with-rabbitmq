@@ -44,6 +44,8 @@ public class SocketHandler extends TextWebSocketHandler {
 				if(position !=null && queueService!=null) {
 					queueService.sendOrder(position);
 					session.sendMessage(new TextMessage("message received"));
+				} else if(queueService == null) {
+					System.out.println("queueService is Null!!");
 				}
 			
 		  }
