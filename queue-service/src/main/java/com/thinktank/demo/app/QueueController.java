@@ -4,8 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.thinktank.demo.app.queue.DragBean;
+import com.thinktank.demo.app.queue.Position;
 import com.thinktank.demo.app.queue.QueueService;
 import com.thinktank.demo.app.queue.QueueWService;
 
@@ -13,7 +12,7 @@ import com.thinktank.demo.app.queue.QueueWService;
 public class QueueController {
 	
 	@Autowired
-	QueueWService queueService;
+	QueueService queueService;
 	
 	
 	

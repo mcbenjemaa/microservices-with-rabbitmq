@@ -1,7 +1,13 @@
-package com.thinktank.demo.app;
+package com.thinktank.demo.app.queue;
 
-public class Position {
+import java.io.Serializable;
+
+public class Position implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8029278185834581668L;
 	private String left;
 	private String top;
 	public String getLeft() {
