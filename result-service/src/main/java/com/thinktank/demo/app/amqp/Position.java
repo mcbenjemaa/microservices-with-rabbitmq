@@ -1,7 +1,10 @@
 package com.thinktank.demo.app.amqp;
 
-public class Position {
+import java.io.Serializable;
+
+public class Position implements Serializable{
 	
+	private static final long serialVersionUID = 1L;
 	private String left;
 	private String top;
 	public String getLeft() {
@@ -23,6 +26,10 @@ public class Position {
 	}
 	public Position() {
 		super();
+	}
+	@Override
+	public String toString() {
+		return "Position [left=" + left + ", top=" + top + "]";
 	}
 	
 	

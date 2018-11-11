@@ -101,3 +101,71 @@
      sendNewPosition(JSON.stringify(position));
 
  }
+ 
+ 
+ /*
+ speech to text control
+ */
+ 
+ if (annyang) {
+	  // Let's define our first command. First the text we expect, and then the function it should call
+	 var commands = {
+			    'top left': function() {
+			    	 elem.style.left = 30 + "px";
+			         elem.style.top = 30 + "px"
+
+			         // send new position
+			         newPosition.left = elem.style.left;
+			         newPosition.top = elem.style.top;
+
+			         sendNew(newPosition);
+			    },
+			    'top center': function() {
+			    	console.log('top center triggered!!');
+			    	 elem.style.left = 500 + "px";
+			         elem.style.top = 30 + "px"
+
+			         // send new position
+			         newPosition.left = elem.style.left;
+			         newPosition.top = elem.style.top;
+
+			         sendNew(newPosition);
+			    },
+			    'top right': function() {
+			    	  elem.style.left = 1000 + "px";
+			    	  elem.style.top = 30 + "px"
+
+				         // send new position
+				         newPosition.left = elem.style.left;
+				         newPosition.top = elem.style.top;
+
+				         sendNew(newPosition);
+			    },
+			    'center': function() {
+			    	console.log('center triggered!!');
+			    	  elem.style.left = 500 + "px";
+
+			    	    elem.style.top = 500 + "px"
+
+				         // send new position
+				         newPosition.left = elem.style.left;
+				         newPosition.top = elem.style.top;
+
+				         sendNew(newPosition);
+			    }
+			};
+
+
+	  // Add our commands to annyang
+	  annyang.addCommands(commands);
+
+	  // Start listening. You can call this here, or attach this call to an event, button, etc.
+	 
+	}
+ 
+ function speechtoText() {
+	 if (annyang) {
+		  annyang.start();
+	 }
+ }
+ 

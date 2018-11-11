@@ -1,31 +1,29 @@
 package com.thinktank.demo.app;
 
-import java.io.Console;
 import java.io.IOException;
 import java.util.List;
-import java.util.Map;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.handler.TextWebSocketHandler;
 
 import com.google.gson.Gson;
-import com.thinktank.demo.app.amqp.EventProducerConfiguration;
 import com.thinktank.demo.app.amqp.Position;
 import com.thinktank.demo.app.amqp.QueueControlService;
 
+@Scope(value = "singleton")
+@Component
 public class SocketHandler extends TextWebSocketHandler {
 
 	@Autowired
 	QueueControlService queueService;
-	
-	@Autowired	private RabbitTemplate rabbitTemplate;
- 
+	 
 	
 	Logger logger = LoggerFactory.getLogger(SocketHandler.class);
 	
@@ -51,28 +49,16 @@ public class SocketHandler extends TextWebSocketHandler {
 					session.sendMessage(new TextMessage("message received"));
 				} else if(queueService == null) {
 					System.out.println("queueService is Null!!");
-					sendOrder(position);
-//					queueService= new QueueControlService(rabbitTemplate);
-//					queueService.sendOrder(position);
-//					session.sendMessage(new TextMessage("message received"));
+					// sendOrder(position);
 				}
 			
 		  }
-//			Map value = new Gson().fromJson(message.getPayload(), Map.class);
-//			webSocketSession.sendMessage(new TextMessage("Hello " + value.get("name") + " !"));
-//			
-			/*
-			 *   send Message
-			 */
 		
 		
 
 	}
 	
-	public void sendOrder(Position order) {
-	    	System.out.println("send Order --- "+ order);
-	        this.rabbitTemplate.convertAndSend(EventProducerConfiguration.QUEUE_Control, order);
-	}
+
 
 	@Override
 	public void afterConnectionEstablished(WebSocketSession session) throws Exception {

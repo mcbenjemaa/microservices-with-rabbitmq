@@ -4,10 +4,6 @@ import java.io.Serializable;
 
 public class Position implements Serializable {
 	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 8029278185834581668L;
 	private String left;
 	private String top;
 	public String getLeft() {
@@ -34,6 +30,7 @@ public class Position implements Serializable {
 	public String toString() {
 		return "Position [left=" + left + ", top=" + top + "]";
 	}
+	
 	
 	
 	

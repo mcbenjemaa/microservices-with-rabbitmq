@@ -8,7 +8,7 @@ function connect() {
     ws = new WebSocket('ws://localhost:8100/control');
     ws.onmessage = function(data) {
             showGreeting(data.data);
-            handleMessage(data.data);
+            //handleMessage(data.data);
         }
         //setConnected(true);
 }

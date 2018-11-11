@@ -15,6 +15,6 @@ public class DragListener {
 	 
 	    @RabbitListener(queues = EventProducerConfiguration.QUEUE_Control)
 	    public void processOrder(String order) {
-	        logger.info("Order Received: "+new Gson().fromJson(order, Position.class));
+	        logger.info("Order Received: "+order);
 	    }
 }

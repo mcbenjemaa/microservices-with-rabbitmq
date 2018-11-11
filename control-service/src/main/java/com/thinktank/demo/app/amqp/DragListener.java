@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
 
+
 @Component
 public class DragListener {
 
@@ -13,6 +14,10 @@ public class DragListener {
 	 
 	    @RabbitListener(queues = EventProducerConfiguration.QUEUE_Control)
 	    public void processOrder(Position order) {
-	        logger.info("Order Received: "+order);
+	         logger.info("msg Received: "+ order);
+
+//	    	if (order.contains("left") && order.contains("top")) {
+//	         logger.info("Order Received: "+ new Gson().fromJson(order, Position.class));
+//	    	}
 	    }
 }
