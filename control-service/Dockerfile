@@ -2,7 +2,7 @@ FROM openjdk:8-jdk-alpine
 
 VOLUME /tmp
 
-EXPOSE 8888
+EXPOSE 8100
 
 ARG JAR_FILE=target/control-service.jar
 
