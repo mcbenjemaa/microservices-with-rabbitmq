@@ -3,15 +3,15 @@
 # Simple microservices App
 
 
- control-service  >>>> port: 8100\n
+ control-service  >>>> port: 8100
 
- queue-service  >>>> port: 8000\n
+ queue-service  >>>> port: 8000
 
- result-service >>>> port: 8400\n
+ result-service >>>> port: 8400
 
- config-server >>>> port: 8888\n
+ config-server >>>> port: 8888
 
- -discovery-service >> discovery service for load balancing >> port: 1800\
+ -discovery-service >> discovery service for load balancing >> port: 1800
 
 
 
