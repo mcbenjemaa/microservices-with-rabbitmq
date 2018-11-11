@@ -108,51 +108,114 @@
  */
  
  if (annyang) {
+	 console.log('annyang');
 	  // Let's define our first command. First the text we expect, and then the function it should call
 	 var commands = {
 			    'top left': function() {
-			    	 elem.style.left = 30 + "px";
-			         elem.style.top = 30 + "px"
+			    	myBlock.style.left = 30 + "px";
+			    	myBlock.style.top = 30 + "px"
 
 			         // send new position
-			         newPosition.left = elem.style.left;
-			         newPosition.top = elem.style.top;
+			         newPosition.left = myBlock.style.left;
+			         newPosition.top = myBlock.style.top;
 
 			         sendNew(newPosition);
 			    },
 			    'top center': function() {
 			    	console.log('top center triggered!!');
-			    	 elem.style.left = 500 + "px";
-			         elem.style.top = 30 + "px"
+			    	myBlock.style.left = 500 + "px";
+			    	myBlock.style.top = 30 + "px"
 
 			         // send new position
-			         newPosition.left = elem.style.left;
-			         newPosition.top = elem.style.top;
+			         newPosition.left = myBlock.style.left;
+			         newPosition.top = myBlock.style.top;
 
 			         sendNew(newPosition);
 			    },
-			    'top right': function() {
-			    	  elem.style.left = 1000 + "px";
-			    	  elem.style.top = 30 + "px"
+			    'Top right': function() {
+			    	myBlock.style.left = 1000 + "px";
+			    	  myBlock.style.top = 30 + "px"
 
 				         // send new position
-				         newPosition.left = elem.style.left;
-				         newPosition.top = elem.style.top;
+				         newPosition.left = myBlock.style.left;
+				         newPosition.top = myBlock.style.top;
 
 				         sendNew(newPosition);
 			    },
 			    'center': function() {
 			    	console.log('center triggered!!');
-			    	  elem.style.left = 500 + "px";
+			    	myBlock.style.left = 500 + "px";
 
-			    	    elem.style.top = 500 + "px"
+			    	  myBlock.style.top = 500 + "px"
 
 				         // send new position
-				         newPosition.left = elem.style.left;
-				         newPosition.top = elem.style.top;
+				         newPosition.left = myBlock.style.left;
+				         newPosition.top = myBlock.style.top;
 
 				         sendNew(newPosition);
+			    },
+			    'Center': function() {
+			    	console.log('Center triggered!!');
+			    	myBlock.style.left = 500 + "px";
+
+			    	  myBlock.style.top = 500 + "px"
+
+				         // send new position
+				         newPosition.left = myBlock.style.left;
+				         newPosition.top = myBlock.style.top;
+
+				         sendNew(newPosition);
+			    },
+			    'Ok': function() {
+			    	console.log('Ok triggered!!');
+			    	myBlock.style.left = 500 + "px";
+
+			    	myBlock.style.top = 500 + "px"
+
+				         // send new position
+				         newPosition.left = myBlock.style.left;
+				         newPosition.top = myBlock.style.top;
+
+				         sendNew(newPosition);
+			    },
+			    'move to *': function(word) {
+			    	switch (word) {
+				    	case 'top center':
+				    		console.log('top center triggered!!');
+					    	myBlock.style.left = 500 + "px";
+					    	myBlock.style.top = 30 + "px"
+
+					         // send new position
+					         newPosition.left = myBlock.style.left;
+					         newPosition.top = myBlock.style.top;
+
+					         sendNew(newPosition);
+				    	break;
+				    	case 'center':
+				    		console.log(' center triggered!!');
+					    	myBlock.style.left = 500 + "px";
+					    	myBlock.style.top = 30 + "px"
+
+					         // send new position
+					         newPosition.left = myBlock.style.left;
+					         newPosition.top = myBlock.style.top;
+
+					         sendNew(newPosition);
+				    	break;
+				    	case 'top right':
+				    		myBlock.style.left = 1000 + "px";
+					    	  myBlock.style.top = 30 + "px"
+
+						         // send new position
+						         newPosition.left = myBlock.style.left;
+						         newPosition.top = myBlock.style.top;
+
+						         sendNew(newPosition);
+				    	break;
+			    	}
+			       
 			    }
+			    
 			};
 
 
@@ -164,8 +227,8 @@
 	}
  
  function speechtoText() {
-	 if (annyang) {
-		  annyang.start();
-	 }
+//	 if (annyang) {
+//		  annyang.start();
+//	 }
  }
  

@@ -13,8 +13,8 @@ public class DragListener {
 	
 	 static final Logger logger = LoggerFactory.getLogger(DragListener.class);
 	 
-	    @RabbitListener(queues = EventProducerConfiguration.QUEUE_Control)
-	    public void processOrder(String order) {
-	        logger.info("Order Received: "+order);
-	    }
+//	    @RabbitListener(queues = EventProducerConfiguration.QUEUE_Control)
+//	    public void processOrder(String order) {
+//	        logger.info("Order Received: "+order);
+//	    }
 }
