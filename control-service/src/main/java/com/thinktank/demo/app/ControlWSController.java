@@ -41,6 +41,8 @@ public class ControlWSController {
 		public String thinktankexchangename;
 		@Value("${think.tank.queue.name}")
 		public String thinktankqueuename;
+		@Value("${spring.cloud.config.uri}")
+		public String configUrl;
 		
 		}
 }
