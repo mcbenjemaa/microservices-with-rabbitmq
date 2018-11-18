@@ -4,3 +4,4 @@ metadata:
   name: think-tank-demo-app
 data:
   queue-host: rabbitmq
+  queue-port: "5672"

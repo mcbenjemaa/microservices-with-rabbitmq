@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: control-service
+  labels:
+    app: think-tank-demo-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: think-tank-demo-app
+  template:
+    metadata:
+      labels:
+        app: think-tank-demo-app
+    spec:
+      containers:
+      - name: control-service
+        image: medchiheb/think-tank-demo-app:control-service
+        ports:
+        - containerPort: 8100
+        imagePullPolicy: Always
+        env:
+        - name: QUEUE_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: think-tank-demo-app
+              key: queue-host
+        - name: QUEUE_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: think-tank-demo-app
+              key: queue-port
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: control-service
+  labels:
+    app: think-tank-demo-app
+spec:
+  ports:
+  - port: 8100
+    protocol: TCP
+    targetPort: 8100
+  selector:
+    app: think-tank-demo-app

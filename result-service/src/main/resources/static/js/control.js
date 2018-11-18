@@ -5,7 +5,7 @@ var ws;
 connect();
 
 function connect() {
-    ws = new WebSocket('ws://localhost:8400/result');
+    ws = new WebSocket('ws://result-service:8400/result');
     ws.onmessage = function(data) {
             showGreeting(data.data);
             console.log('result:' + data.data);

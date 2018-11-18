@@ -8,7 +8,7 @@
  connect();
 
  function connect() {
-     ws = new WebSocket('ws://localhost:8400/result');
+     ws = new WebSocket('ws://192.168.99.100:30105/result');
      ws.onmessage = function(data) {
              showGreeting(data.data);
              console.log('result:' + data.data);

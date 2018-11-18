@@ -27,22 +27,11 @@ public class ControlWSController {
 	
 	@Component
 	class Source {
-		@Value("${queue-host}")
-		public String queuehost;
+		
 		@Value("${spring.rabbitmq.host}")
 		public String springrabbitmqhost;
 		@Value("${spring.rabbitmq.port}")
 		public String springrabbitmqport;
-		@Value("${spring.rabbitmq.username}")
-		public String  springrabbitmqusername;
-		@Value("${spring.rabbitmq.password}")
-		public String springrabbitmqpassword;
-		@Value("${think.tank.exchange.name}")
-		public String thinktankexchangename;
-		@Value("${think.tank.queue.name}")
-		public String thinktankqueuename;
-		@Value("${spring.cloud.config.uri}")
-		public String configUrl;
 		
 		}
 }
