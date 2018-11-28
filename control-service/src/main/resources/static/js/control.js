@@ -5,7 +5,7 @@ var ws;
 connect();
 
 function connect() {
-    ws = new WebSocket('ws://192.168.99.100:30397/control');
+    ws = new WebSocket('ws://35.232.139.91:8100/control');
     ws.onmessage = function(data) {
             showGreeting(data.data);
             //handleMessage(data.data);
