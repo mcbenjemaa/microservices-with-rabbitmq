@@ -8,7 +8,7 @@
  connect();
 
  function connect() {
-     ws = new WebSocket('ws://35.226.144.66:8400/result');
+     ws = new WebSocket('ws://23.96.125.215:8400/result');
      ws.onmessage = function(data) {
              showGreeting(data.data);
              console.log('result:' + data.data);
@@ -38,8 +38,8 @@
  }
 
 
- 
- 
+
+
  function sendNewPosition(position) {
      ws.send(position);
  }
