@@ -13,8 +13,3 @@
 
  -discovery-service >> discovery service for load balancing >> port: 1800
 
-
-
-- change to test commit
-- another change to test 
-- one another time change
