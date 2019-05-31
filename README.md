@@ -1,4 +1,4 @@
-# think-tank-demo-app
+# microservices-with-rabbitmq
 
 # Simple microservices App
 
